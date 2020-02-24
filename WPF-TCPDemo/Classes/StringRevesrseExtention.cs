@@ -15,10 +15,5 @@ namespace WPF_TCPDemo.Classes
             Array.Reverse(charArray);
             return new string(charArray);
         }
-
     }
-
-
-
-
 }

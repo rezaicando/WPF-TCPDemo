@@ -26,12 +26,13 @@ namespace WPF_TCPDemo
             InitializeComponent();
             ClientClass.ClientReadBackFromServerDataCompleted += ClientClass_ClientReadBackFromServerDataCompleted;
         }
-
         private void Button_Click(object sender, RoutedEventArgs e)
-        {            
-            ClientClass.Connect("localhost", txt_Client.Text);
+        {
+            if (txt_Client.Text != string.Empty)
+            {
+                ClientClass.Connect("localhost", txt_Client.Text);
+            }
         }
-
         private void ClientClass_ClientReadBackFromServerDataCompleted(string obj)
         {
             lst_Client.Items.Add(obj);

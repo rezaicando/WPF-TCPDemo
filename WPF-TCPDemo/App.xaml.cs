@@ -24,14 +24,11 @@ namespace WPF_TCPDemo
             ServerClass TCPServer = new ServerClass(13000);
             TCPServer.ServerReadClientDataCompleted += TCPServer_ServerReadClientDataCompleted;
             Task tcpserver = Task.Run(() => TCPServer.StartServer());
-
             m_wnd = new MainWindow();
             m_wnd.Show();
         }
-
         private void TCPServer_ServerReadClientDataCompleted(string obj)
         {
-
             Dispatcher.BeginInvoke(new Action(() =>
             {
                 m_wnd.lst_Server.Items.Add(obj);

@@ -31,29 +31,21 @@ namespace WPF_TCPDemo.Classes
             try
             {
                 TcpListener server = new TcpListener(IPAddress.Any, m_port);
-
                 // Start listening for client requests
                 server.Start();
-
                 // Buffer for reading data
                 byte[] bytes = new byte[Values.BufferSize];
                 NetworkStream stream = null;
                 StringBuilder data = new StringBuilder();
-
                 //Enter the listening loop
                 while (true)
                 {
                     // "Waiting for a connection... "
-                    // Perform a blocking call to accept requests.                    
-
-
+                    // Perform a blocking call to accept requests.   
                     TcpClient client = server.AcceptTcpClient();
-                    
                     // "Connected!"
-
                     // Get a stream object for reading and writing
                     stream = client.GetStream();
-
                     int i;
                     // Loop to receive all the data sent by the client.
                     i = stream.Read(bytes, 0, bytes.Length);
@@ -76,11 +68,6 @@ namespace WPF_TCPDemo.Classes
             {
                 MessageBox.Show(e.Message + " " + e.SocketErrorCode);
             }
-
         }
-
-
     }
-
-
 }
